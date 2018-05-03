@@ -1,4 +1,5 @@
 https://github.com/Ibrahim5560/UserManagement
+https://github.com/Ibrahim5560/UserManagement.git
 By static HashMap :	 ( Using DBClass.java )	
 
 	GetAllNews (GET) : http://localhost:9090/EntityResource/entities
