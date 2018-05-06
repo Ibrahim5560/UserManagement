@@ -1,4 +1,4 @@
-import mena.model.HibernateUtil;
+import mena.db.HibernateUtil;
 import mena.model.HBLine;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
