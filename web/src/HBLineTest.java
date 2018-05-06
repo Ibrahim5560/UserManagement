@@ -34,8 +34,6 @@ public class HBLineTest {
         lecturer1 = null;
         //delete  --------------------------------------------------------
         HibernateUtil.hibernateTrx(new HBLine(), "delete",5);
-        System.out.println("The lecturer " + lecturer1 + " is successfully deleted from your database");
-        lecturer1 = null;
         //select all  --------------------------------------------------------
         List<HBLine>  lines = HibernateUtil.getAllByHQL("from papers order by title,startdate");
         if(lines != null)
