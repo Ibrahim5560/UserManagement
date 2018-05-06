@@ -16,7 +16,7 @@ public class HibernateTest {
         Transaction tx = null;
         try
         {
-            tx = session.beginTransaction();
+            tx = session.beginTransaction();//
             if(type.equals("insert"))
                 session.save(line);
             if(type.equals("update"))
