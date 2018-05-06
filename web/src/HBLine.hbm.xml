@@ -1,15 +1,15 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC
-"-//Hibernate/Hibernate Mapping DTD//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
-<hibernate-mapping>
-<class name="mena.model.HBLine" table="papers">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="mena.model">
+<class name="HBLine" table="papers">
 <id name="id" type="int">
 <generator class="increment"/>
 </id>
 <property name="date" column="startdate" type="date"/>
 <property name="title" column="title" type="string"/>
 <property name="description" column="description" type="string"/>
-<property name="text" column="text" type="text"/>
+<property name="text" column="text" type="string"/>
 </class>
 </hibernate-mapping>

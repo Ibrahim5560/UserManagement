@@ -1,8 +1,7 @@
 package mena.service;
 
-import mena.db.HibernateUtil;
+import mena.model.HibernateUtil;
 import mena.model.HBLine;
-import mena.model.Line;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -14,30 +13,36 @@ import java.util.List;
 public class HBLineService {
     public void hibernateLine (HBLine line,String dml)
     {
-        Session session =
-                HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         if(dml.equals("insert")) session.save(line);
         if(dml.equals("update")) session.update(line);
         if(dml.equals("delete")) session.delete(line);
-        if(dml.equals("select")) session.load(Line.class, line.getId());
+        if(dml.equals("select")) session.load(HBLine.class, line);
         tx.commit();
+        session.close();
     }
-
+    public HBLine hibernateLine (HBLine line)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Transaction tx = session.beginTransaction();
+        return (HBLine) session.load(HBLine.class, line);
+//        tx.commit();
+//        session.close();
+    }
     //---------------------------------getAllPapers--------------------------------------------------------------------------
     public static List<HBLine> getAllPapers()
     {
-        Session session =
-                HibernateUtil.getSessionFactory().getCurrentSession();
-        List<HBLine>  lines = (List<HBLine>) session.createSQLQuery("from papers order by title,startdate").list();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<HBLine>  lines = (List<HBLine>) session.createQuery("from papers order by title,startdate").list();
+        session.close();
         return lines;
     }
-    public static HBLine getPaper(int id)
+    public HBLine getPaper(int id)
     {
-        HBLine line=null;
-        Session session =
-                HibernateUtil.getSessionFactory().getCurrentSession();
-        line = (HBLine) session.load(HBLine.class, id);
+        HBLine line=new HBLine();
+        line.setId(id);
+        line = hibernateLine(line);
         return line;
     }
     //----------------------------------------------------------------------------

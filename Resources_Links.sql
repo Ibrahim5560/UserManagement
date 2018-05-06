@@ -1,6 +1,4 @@
-https://github.com/Ibrahim5560/UserManagement
-https://github.com/Ibrahim5560/UserManagement.git
-By static HashMap :	 ( Using DBClass.java )	
+By static HashMap :	 ( Using DBClass.java )
 
 	GetAllNews (GET) : http://localhost:9090/EntityResource/entities
 	GetOneNew (GET)  : http://localhost:9090/EntityResource/entities/1
@@ -36,14 +34,3 @@ By Hibernate framework + MySQL Database : (Using HibernateUtil.java)
 	DeleteNew (DELETE) :  http://localhost:9090/HBLineResource/lines/2
 	
 	-------------------------------------------------------------------------------
-	
-	Dear Hesham,
-
-There are two files inside the task which describe the task methodology
-
-the first file is info.sql
-the first file is Resources_Links.sql 
-
-if you have any questions, don't hesitate to give me a call on : 00201148185560
-
-Regards
