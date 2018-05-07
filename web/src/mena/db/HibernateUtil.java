@@ -1,9 +1,6 @@
 package mena.db;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
@@ -108,6 +105,31 @@ public class HibernateUtil {
             session.close();
         }
         return lines;
+    }
+    //---------------------------------hibernatePrivateTrx------------------------------
+    public static <E> int hibernatePrivateTrx(E line, String sql) // trx insert - update - delete
+    {
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        int no=0;
+        try
+        {
+            tx = session.beginTransaction();
+            Query query= (SQLQuery) session.createSQLQuery(sql);
+            no=query.executeUpdate();
+            tx.commit();
+        }
+        catch (HibernateException e)
+        {
+            if (tx!=null)
+                tx.rollback();
+            e.printStackTrace();
+        }
+        finally
+        {
+            session.close();
+        }
+        return no;
     }
     //----------------------------------------------------------------------------------------
 }
