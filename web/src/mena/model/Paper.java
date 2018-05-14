@@ -19,9 +19,22 @@ public class Paper implements Serializable {
 
     public Paper(){}
 
+    public Paper(String title,String description,String text){
+        this.date=new Date(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
     public Paper(int id,String title,String description,String text){
         this.id=id;
-        this.date=new java.util.Date();
+        this.date=new Date(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
+    public Paper(int id,Date date,String title,String description,String text){
+        this.id=id;
+        this.date=date;
         this.title=title;
         this.description=description;
         this.text=text;

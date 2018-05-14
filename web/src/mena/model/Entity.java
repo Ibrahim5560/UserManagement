@@ -17,7 +17,7 @@ public class Entity implements Serializable {
     public Entity(){}
     public Entity(int id,String title,String description,String text){
         this.id=id;
-        this.date=new Date();
+        this.date=new Date(System.currentTimeMillis());
         this.title=title;
         this.description=description;
         this.text=text;

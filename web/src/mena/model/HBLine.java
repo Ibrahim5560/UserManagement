@@ -10,16 +10,29 @@ public class HBLine implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private int id;
-    private Timestamp date;
+    private Timestamp startdate;
     private String title;
     private String description;
     private String text;
 
     public HBLine(){}
 
-    public HBLine(int id,Timestamp date,String title,String description,String text){
+    public HBLine(String title,String description,String text){
+        this.startdate = new Timestamp(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
+    public HBLine(int id,String title,String description,String text){
         this.id=id;
-        this.date=date;
+        this.startdate = new Timestamp(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
+    public HBLine(int id,Timestamp startdate,String title,String description,String text){
+        this.id=id;
+        this.startdate = startdate;
         this.title=title;
         this.description=description;
         this.text=text;
@@ -31,11 +44,11 @@ public class HBLine implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getStartdate() {
+        return startdate;
     }
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setStartdate(Timestamp startdate) {
+        this.startdate = startdate;
     }
     public String getTitle() {
         return title;
@@ -60,13 +73,13 @@ public class HBLine implements Serializable {
     public boolean equals(Object object){
         if(object == null){
             return false;
-        }else if(!(object instanceof Line)){
+        }else if(!(object instanceof HBLine)){
             return false;
         }else {
-            Line line = (Line)object;
+            HBLine line = (HBLine)object;
             if(id == line.getId()
                     && title.equals(line.getTitle())
-                    && date.equals(line.getDate())
+                    && startdate.equals(line.getStartdate())
                     && description.equals(line.getDescription())
                     && text.equals(line.getText())
                     ){

@@ -74,7 +74,7 @@ public class LineTester {
     //Test: Check if result is success Json.
     private void testUpdatePaper(){
         //------------------------------------------
-        Line paper = new Line(2,new Timestamp (System.currentTimeMillis()), "Shaker" ,"Clerk","Management Department");
+        Line paper = new Line(2, "Shaker" ,"Clerk","Management Department");
         LineService paperService = new LineService();
         //------------------------------------------
         String callResult = client.target(REST_SERVICE_URL).request(MediaType.APPLICATION_JSON)
@@ -90,7 +90,7 @@ public class LineTester {
     //Test: Check if result is success Json.
     private void testAddPaper(){
         //------------------------------------------
-        Line paper = new Line(3, new Timestamp(System.currentTimeMillis()), "Hatem" ,"Project Manager","Management Department");
+        Line paper = new Line(3, "Hatem" ,"Project Manager","Management Department");
         //------------------------------------------
         String callResult = client.target(REST_SERVICE_URL).request(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(paper,MediaType.APPLICATION_JSON),String.class);

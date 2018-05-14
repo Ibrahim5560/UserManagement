@@ -73,7 +73,7 @@ public class HBLineTester {
     //Test: Check if result is success Json.
     private void testUpdatePaper(){
         //------------------------------------------
-        HBLine paper = new HBLine(2,new Timestamp(System.currentTimeMillis()), "Shaker" ,"Clerk","Management Department");
+        HBLine paper = new HBLine(2, "Shaker" ,"Clerk","Management Department");
         HBLineService paperService = new HBLineService();
         //------------------------------------------
         String callResult = client.target(REST_SERVICE_URL).request(MediaType.APPLICATION_JSON)
@@ -89,7 +89,7 @@ public class HBLineTester {
     //Test: Check if result is success Json.
     private void testAddPaper(){
         //------------------------------------------
-        HBLine paper = new HBLine(3, new Timestamp(System.currentTimeMillis()), "Hatem" ,"Project Manager","Management Department");
+        HBLine paper = new HBLine(3, "Hatem" ,"Project Manager","Management Department");
         //------------------------------------------
         String callResult = client.target(REST_SERVICE_URL).request(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(paper,MediaType.APPLICATION_JSON),String.class);

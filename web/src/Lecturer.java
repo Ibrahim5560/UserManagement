@@ -11,6 +11,11 @@ public class Lecturer {
         this.firstName=firstName;
         this.lastName=lastName;
     }
+    public Lecturer(int id,String firstName,String lastName){
+        this.id=id;
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
 
     public int getId() {
         return id;

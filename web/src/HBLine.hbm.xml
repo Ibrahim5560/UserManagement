@@ -7,7 +7,7 @@
 <id name="id" type="int">
 <generator class="increment"/>
 </id>
-<property name="date" column="startdate" type="date"/>
+<property name="startdate" column="startdate" type="timestamp"/>
 <property name="title" column="title" type="string"/>
 <property name="description" column="description" type="string"/>
 <property name="text" column="text" type="string"/>

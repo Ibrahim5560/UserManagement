@@ -20,6 +20,19 @@ public class Line implements Serializable {
 
     public Line(){}
 
+    public Line(String title,String description,String text){
+        this.date=new Timestamp(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
+    public Line(int id,String title,String description,String text){
+        this.id=id;
+        this.date=new Timestamp(System.currentTimeMillis());
+        this.title=title;
+        this.description=description;
+        this.text=text;
+    }
     public Line(int id,Timestamp date,String title,String description,String text){
         this.id=id;
         this.date=date;
